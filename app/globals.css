@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+input::placeholder {
+  font-size: small;
+}
+
+.error-message {
+  color: red;
+  font-size: small;
+}
+
+@layer components {
+  .spinner {
+    margin: 3.2rem auto 1.6rem;
+    width: 60px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 8px solid #fff;
+    border-right-color: #333;
+    animation: rotate 1s infinite linear;
+  }
+
+  .spinner-mini {
+    margin: 0;
+    width: 20px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    border-right-color: transparent;
+    animation: rotate 1s infinite linear;
+  }
+
+  @keyframes rotate {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+}
+
+/* Popup wrapper */
+.dark-datepicker-popup {
+  background-color: #1b2631 !important;
+  color: #fff !important;
+}
+
+/* Header and navigation (month/year) */
+.dark-datepicker-popup .ant-picker-header,
+.dark-datepicker-popup .ant-picker-header-view {
+  background-color: #1b2631;
+  color: #fff;
+}
+
+/* Calendar table */
+.dark-datepicker-popup .ant-picker-body {
+  background-color: #1b2631;
+  color: #fff;
+}
+
+/* Individual date cells */
+.dark-datepicker-popup .ant-picker-cell-inner {
+  color: #fff;
+}
+
+/* Hover effect */
+.dark-datepicker-popup .ant-picker-cell-in-view:hover .ant-picker-cell-inner {
+  background-color: #374151 !important;
+  color: #fff !important;
+}
+
+/* Selected date */
+.dark-datepicker-popup .ant-picker-cell-selected .ant-picker-cell-inner {
+  background-color: #facc15 !important; /* yellow */
+  color: #000 !important;
+}
+
+/* Today button */
+.dark-datepicker-popup .ant-picker-today-btn {
+  color: #facc15 !important;
+}
+
+/* Weekdays */
+.dark-datepicker-popup .ant-picker-column-header {
+  color: #fff !important;
+}
+
+.ant-picker-input > input::placeholder {
+  color: #fff !important;
+}
+
+.anticon svg {
+  fill: white;
+}
+.ant-input::placeholder {
+  color: #fff !important;
+}
+
+.ant-checkbox .ant-checkbox-input .ant-checkbox-inner {
+  background-color: #1b2631 !important;
+  border-color: #fff !important;
+}
+
+:where(.css-dev-only-do-not-override-1d8anct).ant-checkbox-checked
+  .ant-checkbox-inner {
+  background-color: #1b2631;
+  border-color: #fff !important;
+}
+
+:where(.css-dev-only-do-not-override-1d8anct).ant-checkbox-checked:not(
+    .ant-checkbox-disabled
+  ):hover
+  .ant-checkbox-inner {
+  background-color: #1b2631 !important;
+  border-color: #fff !important;
+}
