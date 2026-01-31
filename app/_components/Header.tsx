@@ -1,12 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { getUser } from "../_lib/auth";
 import { Logo } from "./Logo";
 import { Navigation } from "./Navigation";
 import { Title } from "./Title";
 import { motion } from "framer-motion";
-import { createSupabaseClient } from "../_lib/supabase";
 
 export function Header() {
   return (
