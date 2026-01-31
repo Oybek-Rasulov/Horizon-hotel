@@ -1,6 +1,9 @@
 import { RoomsType } from "../_types/data";
-import { supabase } from "./supabase";
+import { createSupabaseClient } from "./supabase";
 
+const supabase = createSupabaseClient();
+
+// Rooms
 export async function getRooms() {
   const { data: rooms, error } = await supabase.from("rooms").select("*");
 
@@ -12,7 +15,6 @@ export async function getRooms() {
 }
 
 export async function getRoom(id: number | string) {
-  console.log(id);
 
   const { data: room, error } = await supabase
     .from("rooms")
@@ -25,3 +27,5 @@ export async function getRoom(id: number | string) {
 
   return room as RoomsType[];
 }
+
+

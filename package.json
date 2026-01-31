@@ -16,6 +16,8 @@
     "@heroui/theme": "^2.4.25",
     "@mantine/carousel": "^8.3.13",
     "@mantine/core": "^8.3.13",
+    "@supabase/auth-helpers-nextjs": "^0.15.0",
+    "@supabase/ssr": "^0.8.0",
     "@supabase/supabase-js": "^2.91.1",
     "@tabler/icons-react": "^3.36.1",
     "antd": "^6.2.2",

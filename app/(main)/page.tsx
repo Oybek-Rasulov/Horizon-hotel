@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Title } from "../_components/Title";
 import { Button } from "../_components/Button";
 
-export default function Home() {
+export default async function Home() {
   return (
     <main className="mt-20 w-full py-3 px-3 bg-white dark:bg-black">
       <Image

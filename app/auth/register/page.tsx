@@ -1,6 +1,6 @@
 import Image from "next/image";
 import bgImage from "@/public/images/bg.jpg";
-import { RegisterForm } from "@/app/_components/RegisterForm";
+import RegisterForm from "@/app/_components/RegisterForm";
 
 function Page() {
   return (

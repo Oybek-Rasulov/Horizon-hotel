@@ -1,9 +1,11 @@
 import Image from "next/image";
 import bgImage from "@/public/images/bg.jpg";
-import { LoginForm } from "@/app/_components/LoginForm";
+import LoginForm from "@/app/_components/LoginForm";
 import Link from "next/link";
+import { getUser } from "@/app/_lib/auth";
 
-function Page() {
+async function Page() {
+
   return (
     <div className="w-full h-screen flex items-center justify-center text-white">
       <Image
