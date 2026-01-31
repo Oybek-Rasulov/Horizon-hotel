@@ -2,7 +2,6 @@ import Image from "next/image";
 import bgImage from "@/public/images/bg.jpg";
 import LoginForm from "@/app/_components/LoginForm";
 import Link from "next/link";
-import { getUser } from "@/app/_lib/auth";
 
 async function Page() {
 

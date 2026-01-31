@@ -21,7 +21,7 @@ export function Logout() {
     if (error) {
       toast.error("Failed to logout!");
     }
-    // redirect("/");
+    redirect("/");
   }
 
   return (
