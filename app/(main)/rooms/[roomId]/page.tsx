@@ -8,8 +8,12 @@ import Link from "next/link";
 import SelectDateReservation from "../../../_components/SelectDateReservation";
 
 export default async function Page({ params }: PageProps) {
-  const { roomId } = await params;
+  const { roomId } = params;
   const room = await getRoom(roomId);
+
+  if (!room || room.length === 0) {
+    return <div className="text-white text-center">Room not found</div>;
+  }
 
   return (
     <div className="mt-10">
@@ -102,7 +106,7 @@ export default async function Page({ params }: PageProps) {
           </span>
 
           <div className="mt-3">
-            <Link href={`rooms/${room[0].id}`}>
+            <Link href={`/rooms/${room[0].id}`}>
               <Button className="text-sm w-full">Reserve now</Button>
             </Link>
           </div>
