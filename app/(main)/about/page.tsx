@@ -1,7 +1,12 @@
 import { Button } from "@/app/_components/Button";
 import { Title } from "@/app/_components/Title";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "About",
+};
 
 export default function Page() {
   return (

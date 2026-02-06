@@ -1,7 +1,7 @@
 import { Timestamp } from "next/dist/server/lib/cache-handlers/types";
 
 export type RoomsType = {
-  id?: number;
+  id: number;
   created_at?: Timestamp;
   name?: string;
   room_number?: number;

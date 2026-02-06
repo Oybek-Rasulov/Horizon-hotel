@@ -4,6 +4,8 @@ export interface ButtonProp {
   text?: string;
   bg?: string;
   className?: string;
+  isLoading?: boolean;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export interface TitleProp {

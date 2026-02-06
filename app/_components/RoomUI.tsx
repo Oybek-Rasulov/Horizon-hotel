@@ -6,20 +6,21 @@ import { Title } from "./Title";
 import SelectDateReservation from "./SelectDateReservation";
 import Link from "next/link";
 import { Button } from "./Button";
+import { RoomsType } from "../_types/data";
 
-export default function RoomUI({ room }: { room: any }) {
+export default function RoomUI({ room }: { room: RoomsType[] }) {
   return (
     <div className="mt-10">
       <Title className="text-center" color="white">
-        {room[0].name}
+        {room[0]?.name}
       </Title>
-      <div className="relative flex h-[80%] w-[100%] bg-[#1B2631] p-5 mt-10 rounded">
+      <div className="relative flex h-[80%] w-full bg-[#1B2631] p-5 mt-10 rounded">
         <span
           className={`${room[0]?.level?.toLowerCase() === "standard" ? "text-yellow-600" : room[0]?.level?.toLowerCase() === "premium" ? "text-purple-600" : "text-pink-600"} rounded absolute top-2 right-2 text-[0.8rem] border py-1 px-2`}
         >
           {room[0]?.level}
         </span>
-        <div className="w-[100%] mr-10 mb-[-5rem]">
+        <div className="w-full mr-10 -mb-20">
           <ImageCarousel images={room[0]?.gallery_images} height="h-110" />
         </div>
         {/* {room.gallery_images.map((image: string, index: number) => (
@@ -45,7 +46,7 @@ export default function RoomUI({ room }: { room: any }) {
                   {" "}
                   Status:{" "}
                   <span
-                    className={`${room[0]?.status === "available" ? "text-green-600" : room[0].status === "occupied" ? "text-red-600" : "text-yellow-600"}`}
+                    className={`${room[0]?.status === "available" ? "text-green-600" : room[0]?.status === "occupied" ? "text-red-600" : "text-yellow-600"}`}
                   >
                     {room[0]?.status}
                   </span>
@@ -89,19 +90,7 @@ export default function RoomUI({ room }: { room: any }) {
             </div>
           </div>
           <div>
-            <SelectDateReservation />
-          </div>
-          <span>
-            Price:{" "}
-            <span className="text-yellow-600 text-3xl">
-              ${room[0]?.price_per_night} USD
-            </span>
-          </span>
-
-          <div className="mt-3">
-            <Link href={`/rooms/${room[0]?.id}`}>
-              <Button className="text-sm w-full">Reserve now</Button>
-            </Link>
+            <SelectDateReservation room={room} />
           </div>
         </div>
       </div>

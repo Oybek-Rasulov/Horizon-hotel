@@ -1,6 +1,11 @@
 import Image from "next/image";
 import bgImage from "@/public/images/bg.jpg";
 import RegisterForm from "@/app/_components/RegisterForm";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Register",
+};
 
 function Page() {
   return (

@@ -2,6 +2,11 @@ import Image from "next/image";
 import bgImage from "@/public/images/bg.jpg";
 import LoginForm from "@/app/_components/LoginForm";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Login",
+};
 
 async function Page() {
 

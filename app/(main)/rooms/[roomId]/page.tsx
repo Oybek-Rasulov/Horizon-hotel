@@ -1,12 +1,11 @@
-import { Button } from "@/app/_components/Button";
-import ImageCarousel from "@/app/_components/ImageCarousel";
-import { Title } from "@/app/_components/Title";
 import { getRoom } from "@/app/_lib/data-services";
 import { PageProps } from "@/app/_types/services";
-import { Lamp, SearchCheck, Users } from "lucide-react";
-import Link from "next/link";
-import SelectDateReservation from "../../../_components/SelectDateReservation";
 import RoomUI from "@/app/_components/RoomUI";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Room",
+};
 
 export default async function Page({ params }: PageProps) {
   const { roomId } = await params;

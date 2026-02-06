@@ -4,8 +4,13 @@ import { Title } from "@/app/_components/Title";
 import { getRooms } from "@/app/_lib/data-services";
 import { Suspense } from "react";
 import { Spinner } from "@/app/_components/Spinner";
+import { Metadata } from "next";
 
 export const revalidate = 0;
+
+export const metadata: Metadata = {
+  title: "Rooms",
+};
 
 export default async function Page() {
   const rooms = await getRooms();

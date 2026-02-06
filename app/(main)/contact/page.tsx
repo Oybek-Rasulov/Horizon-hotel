@@ -2,6 +2,11 @@ import Image from "next/image";
 import contact from "@/public/images/contact.jpg";
 import ContactForm from "../../_components/ContactForm";
 import { Title } from "../../_components/Title";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact",
+};
 
 export default function Page() {
   return (

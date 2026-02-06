@@ -1,6 +1,12 @@
 import { Header } from "../_components/Header";
 import { ToastAlert } from "../_components/ToastAlert";
 import { Logout } from "../_components/Logout";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: { template: "%s | Horizon hotel", default: "Welcome | Horizon hotel" },
+  description: "Here is our best hotel rooms so reserve and enjoy",
+};
 
 export default function MainLayout({
   children,

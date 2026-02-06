@@ -21,6 +21,9 @@ export function Navigation() {
           <NavLink href="/rooms">Rooms</NavLink>
         </li>
         <li>
+          <NavLink href="/reservations">Reservations</NavLink>
+        </li>
+        <li>
           <NavLink href="/contact">Contact</NavLink>
         </li>
         <li className="w-25">
