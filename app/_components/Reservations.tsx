@@ -50,12 +50,9 @@ export default function Reservations() {
       <Title className="text-center" color="white">
         Your Reservations
       </Title>
-      <div className="flex">
+      <div className="flex flex-col">
         {reservationData?.map((data: ReservationDetailsType, index: number) => (
-          <div
-            key={index}
-            className="w-full bg-[#1b2631] mt-5 flex flex-col relative"
-          >
+          <div key={index} className="w-full bg-[#1b2631] mt-5 flex relative">
             <div>
               <Image
                 src={data?.rooms?.gallery_images?.[0] || "/placeholder.jpg"}
