@@ -7,8 +7,6 @@ export function NavLink({ children, href = "" }: NavLinkType) {
   const currentPath = usePathname();
   const isActive = href === currentPath;
 
-  console.log(isActive);
-
   return (
     <>
       <Link

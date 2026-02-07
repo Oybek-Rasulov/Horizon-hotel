@@ -7,9 +7,18 @@ import Link from "next/link";
 import { RoomsType } from "../_types/data";
 import ImageCarousel from "./ImageCarousel";
 import { useFilterRoom } from "../store/useFilterRooms";
+import { useEffect, useState } from "react";
+import { User } from "../_lib/auth";
 
 export function RoomsList() {
+  const [user, setUser] = useState<any>(null);
   const rooms = useFilterRoom((state) => state.roomsData);
+
+  useEffect(() => {
+    User().then(setUser);
+  }, []);
+
+  console.log(user);
 
   return (
     <div className="flex flex-wrap gap-x-10 gap-y-15 justify-center">
@@ -74,7 +83,7 @@ export function RoomsList() {
             </span>
 
             <div className="mt-3">
-              <Link href={`rooms/${room.id}`}>
+              <Link href={user ? `rooms/${room.id}` : "/auth/login"}>
                 <Button className="text-sm">Reserve now</Button>
               </Link>
             </div>

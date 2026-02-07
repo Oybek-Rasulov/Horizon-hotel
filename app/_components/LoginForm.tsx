@@ -30,6 +30,18 @@ export default function LoginForm() {
       return;
     }
 
+    if (data.session?.access_token) {
+      // ✅ This is where you paste the snippet
+      await fetch("/api/auth/set-token", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ token: data.session.access_token }),
+      });
+
+      // Force page reload so middleware sees the cookie
+      router.push("/reservations"); // or window.location.href = "/reservations"
+    }
+
     if (data.user?.id) {
       localStorage.setItem("userId", data.user.id);
       console.log("USER:", data.user);

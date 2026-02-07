@@ -20,9 +20,14 @@ export function Navigation() {
         <li>
           <NavLink href="/rooms">Rooms</NavLink>
         </li>
-        <li>
-          <NavLink href="/reservations">Reservations</NavLink>
-        </li>
+        {user ? (
+          <li>
+            <NavLink href="/reservations">Reservations</NavLink>
+          </li>
+        ) : (
+          ""
+        )}
+
         <li>
           <NavLink href="/contact">Contact</NavLink>
         </li>

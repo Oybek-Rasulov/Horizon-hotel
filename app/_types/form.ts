@@ -23,10 +23,10 @@ export type RegisterFormType = {
 
 export interface ReservationDetailsType {
   id?: string | number;
-  start_date: string | null | Dayjs | Dayjs[];
-  end_date: string | null | Dayjs | Dayjs[];
-  guest_number: string | number;
-  breakfast: boolean;
-  rooms_id: number | string;
-  rooms: RoomsType;
+  start_date?: string | null | Dayjs | Dayjs[];
+  end_date?: string | null | Dayjs | Dayjs[];
+  guest_number?: string | number;
+  breakfast?: boolean;
+  rooms_id?: number | string;
+  rooms?: RoomsType;
 }

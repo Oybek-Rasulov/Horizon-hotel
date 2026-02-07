@@ -5,7 +5,7 @@ import { ReservationDetailsType } from "../_types/form";
 import { deleteReservation, getReservations } from "../_lib/data-services";
 import { Title } from "./Title";
 import Image from "next/image";
-import { Delete, Lamp, Trash, Users } from "lucide-react";
+import { Lamp, Trash, Users } from "lucide-react";
 import dayjs from "dayjs";
 import { Button } from "./Button";
 import toast from "react-hot-toast";
@@ -20,10 +20,7 @@ export default function Reservations() {
     getReservations().then(setReservationData);
   }, []);
 
-  console.log(reservationData);
-
   async function handleDelete(id: string | number) {
-    console.log(id);
     const { message } = await deleteReservation(id);
 
     if (message) {
@@ -58,7 +55,7 @@ export default function Reservations() {
           <div key={index} className="w-full bg-[#1b2631] mt-5 flex relative">
             <div>
               <Image
-                src={data?.rooms?.gallery_images[0]}
+                src={data?.rooms?.gallery_images?.[0] || "/placeholder.jpg"}
                 alt={`room ${data?.rooms?.id}`}
                 width={400}
                 height={400}
@@ -80,17 +77,21 @@ export default function Reservations() {
               <p className="text-sm mb-1">
                 <span className="mr-2">Start Date:</span>
                 <span>
-                  {data?.start_date
-                    ? dayjs(data?.start_date).format("YYYY-MM-DD")
-                    : ""}
+                  {Array.isArray(data?.start_date)
+                    ? dayjs(data.start_date[0]).format("YYYY-MM-DD")
+                    : data?.start_date
+                      ? dayjs(data.start_date).format("YYYY-MM-DD")
+                      : ""}
                 </span>
               </p>
               <p className="text-sm mb-2">
                 <span className="mr-2">End Date:</span>
                 <span>
-                  {data?.start_date
-                    ? dayjs(data?.end_date).format("YYYY-MM-DD")
-                    : ""}
+                  {Array.isArray(data?.start_date)
+                    ? dayjs(data.start_date[0]).format("YYYY-MM-DD")
+                    : data?.start_date
+                      ? dayjs(data.start_date).format("YYYY-MM-DD")
+                      : ""}
                 </span>
               </p>
               <span>
@@ -103,7 +104,11 @@ export default function Reservations() {
             <div className="absolute right-2 top-2">
               <Button
                 className="h-full rounded hover:bg-red-500 hover:text-white"
-                onClick={() => handleDelete(data?.id)}
+                onClick={() => {
+                  if (data?.id !== undefined) {
+                    handleDelete(data.id);
+                  }
+                }}
               >
                 <Trash />
               </Button>

@@ -14,6 +14,7 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   const rooms = await getRooms();
+
   return (
     <div className="mb-10 px-3">
       <Title className="text-center mb-5 mt-5" color="white">

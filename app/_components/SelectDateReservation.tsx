@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Checkbox, DatePicker, Input } from "antd";
 import type { DatePickerProps } from "antd";
 import type { CheckboxProps } from "antd";
@@ -11,6 +11,7 @@ import { ReservationDetailsType } from "../_types/form";
 import { reserveRoom } from "../_lib/data-services";
 import toast from "react-hot-toast";
 import { redirect } from "next/navigation";
+import { User } from "../_lib/auth";
 
 function SelectDateReservation({ room }: { room: RoomsType[] }) {
   const [reservationDetails, setReservationDetails] =
